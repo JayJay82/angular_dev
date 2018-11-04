@@ -1,0 +1,23 @@
+<div *ngIf="project; else select" class="row" style="margin-bottom:1em" >
+    <div class="col-md-12">
+        <h1 class="my-4">{{project.title}}
+            <small>Secondary Text</small>
+          </h1>
+    </div>
+    <div class="col-md-8">
+      <img class="img-fluid" [src]="project.image" alt="">
+    </div>
+  
+    <div class="col-md-4">
+      <h3 class="my-3">Project Description</h3>
+      <p>{{project.description}}</p>
+     
+    </div>
+  </div>
+  <ng-template #select>
+      <div class="col-md-12">
+          <a class="my-4">
+       
+          </a>
+      </div>
+  </ng-template>
