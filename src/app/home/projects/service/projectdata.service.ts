@@ -3,6 +3,8 @@ import { HttpClient}  from '@angular/common/http';
 import { IProject } from '../model/IProject.model';
 import { PROJECTS_URI } from '../../../shared/configuration/api.configuration';
 import { Observable, Subject } from 'rxjs';
+import { GenericResponse } from '../../../shared/model/genericResponse.model';
+import { Status } from '../../../shared/model/status.enum';
 
 
 @Injectable({
@@ -11,7 +13,7 @@ import { Observable, Subject } from 'rxjs';
 
 export class ProjectdataService {
  
-  public projectListchanged   = new Subject<IProject[]>();
+  public projectListchanged   = new Subject<GenericResponse<IProject[]>>();
   public selectedProjectChanged = new Subject<IProject>();
  
   private projectList : IProject[] = [];
@@ -27,8 +29,11 @@ export class ProjectdataService {
   public getAllProjects = () => {
     this.http.get<IProject[]>(PROJECTS_URI).subscribe((data) => {
       this.projectList = data;
-      this.projectListchanged.next(this.projectList);
+      const response : GenericResponse<IProject[]> = new GenericResponse<IProject[]>(Status.OK,this.projectList,null);
+      this.projectListchanged.next(response);
+    }, (error : Response) => {
+      const response : GenericResponse<IProject[]> = new GenericResponse<IProject[]>(error.status,null,error.statusText);
+      this.projectListchanged.next(response);
     });    
   }
-  
 }
