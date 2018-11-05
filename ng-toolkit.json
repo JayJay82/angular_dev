@@ -1,0 +1,7 @@
+{
+  "universal": {
+    "project": "quickstart",
+    "skipInstall": false,
+    "directory": "."
+  }
+}

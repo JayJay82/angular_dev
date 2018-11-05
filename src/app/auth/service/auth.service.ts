@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../auth/model/user.model';
 import { shareReplay, tap } from 'rxjs/operators';
@@ -11,7 +12,7 @@ const SIGN_IN_API : string  = "http://localhost:3090/signin";
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private http: HttpClient) {}
     
   public login = (email:string, password:string ) => {
       return this.http.post<any>(SIGN_IN_API, {email, password})
@@ -21,13 +22,13 @@ export class AuthService {
 
   private setSession = (authResult) => {
     const expiresAt = moment().add(200000,'second');
-    localStorage.setItem('id_token', authResult.token);
-    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+    this.localStorage.setItem('id_token', authResult.token);
+    this.localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }   
   
   public logout = () => {
-      localStorage.removeItem("id_token");
-      localStorage.removeItem("expires_at");
+      this.localStorage.removeItem("id_token");
+      this.localStorage.removeItem("expires_at");
   }
 
   public isLoggedIn = () => {
@@ -40,7 +41,7 @@ export class AuthService {
   }
 
   getExpiration() {
-      const expiration = localStorage.getItem("expires_at");
+      const expiration = this.localStorage.getItem("expires_at");
       const expiresAt = JSON.parse(expiration);
       return moment(expiresAt);
   }   

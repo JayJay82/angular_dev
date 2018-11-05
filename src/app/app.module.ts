@@ -1,3 +1,5 @@
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -26,8 +28,11 @@ import { AuthService } from './auth/service/auth.service';
     ProjectItemComponent,
     LoginComponent
   ],
-  imports: [
-    BrowserModule,
+  imports:[
+ CommonModule,
+NgtUniversalModule,
+ 
+    
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -42,6 +47,5 @@ import { AuthService } from './auth/service/auth.service';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }
