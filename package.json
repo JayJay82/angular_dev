@@ -11,6 +11,7 @@
     "build:server:prod": "ng run quickstart:server && webpack --config webpack.server.config.js --progress --colors",
     "build:browser:prod": "ng build --prod",
     "build:prod": "npm run build:server:prod && npm run build:browser:prod",
+    "build:prodMock": "concurrently \"json-server --watch db.json\" \"npm run build:server:prod\"  \"npm run build:browser:prod\"  \"node local.js\"",
     "server": "node local.js"
   },
   "private": true,
