@@ -4,6 +4,8 @@ import { User } from '../../auth/model/user.model';
 import { shareReplay, tap } from 'rxjs/operators';
 import * as moment from "moment";
 
+const SIGN_IN_API : string  = "http://localhost:3090/signin";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
     
   public login = (email:string, password:string ) => {
-      return this.http.post<any>('http://localhost:3090/signin', {email, password})
+      return this.http.post<any>(SIGN_IN_API, {email, password})
       .pipe(tap(res => this.setSession(res)))
       .pipe(shareReplay());          
   }
