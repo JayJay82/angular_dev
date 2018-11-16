@@ -14,6 +14,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { AuthInterceptor } from '../app/auth/service/authInterceptor';
 import { AuthGuard } from './auth/service/guard/authguard.guard';
 import { AuthService } from './auth/service/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { AddProjectComponent } from './home/projects/add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +27,17 @@ import { AuthService } from './auth/service/auth.service';
     ProjectlistComponent,
     ProjectDetailComponent,
     ProjectItemComponent,
-    LoginComponent
+    LoginComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [
     AuthService,

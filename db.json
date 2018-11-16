@@ -1,7 +1,34 @@
 {
-    "projects": [
-      { "id": 1, "title": "Hololens", "description": "Microsoft HoloLens is the first self-contained, holographic computer, enabling you to engage with your digital content and interact with holograms in the world around you.", "image" : "https://img.purch.com/w/500/aHR0cDovL21lZGlhLmJlc3RvZm1pY3JvLmNvbS9CLzgvNzM1MjM2L29yaWdpbmFsL01pY3Jvc29mdC1Ib2xvbGVucy1iYi5qcGc=" },
-      { "id": 1, "title": "Leap Motion", "description": "Leap Motion’s natural and intuitive technology is used by over 300,000 developers worldwide to create new realities for people to live, work, and play.", "image" : "https://gamificationplus.uk/wp-content/uploads/2012/06/leap-motion-sensor.jpg" },
-      { "id": 1, "title": "Oculus", "description": "Oculus ridefinisce completamente l'intrattenimento digitale. Immergiti nei giochi o entra nei tuoi film preferiti. Viaggia nel tempo, nello spazio o divertiti con i tuoi amici in VR.", "image" : "https://www.informatblog.com/wp-content/uploads/2015/09/xbox-one-oculus-rift-informatblog.jpg" }
-    ]
-  }
+  "projects": [
+    {
+      "id": 1,
+      "title": "Hololens",
+      "description": "Microsoft HoloLens is the first self-contained, holographic computer, enabling you to engage with your digital content and interact with holograms in the world around you.",
+      "image": "https://img.purch.com/w/500/aHR0cDovL21lZGlhLmJlc3RvZm1pY3JvLmNvbS9CLzgvNzM1MjM2L29yaWdpbmFsL01pY3Jvc29mdC1Ib2xvbGVucy1iYi5qcGc="
+    },
+    {
+      "id": 1,
+      "title": "Leap Motion",
+      "description": "Leap Motion’s natural and intuitive technology is used by over 300,000 developers worldwide to create new realities for people to live, work, and play.",
+      "image": "https://gamificationplus.uk/wp-content/uploads/2012/06/leap-motion-sensor.jpg"
+    },
+    {
+      "id": 1,
+      "title": "Oculus",
+      "description": "Oculus ridefinisce completamente l'intrattenimento digitale. Immergiti nei giochi o entra nei tuoi film preferiti. Viaggia nel tempo, nello spazio o divertiti con i tuoi amici in VR.",
+      "image": "https://www.informatblog.com/wp-content/uploads/2015/09/xbox-one-oculus-rift-informatblog.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Google Home",
+      "description": "Stammi Ciao",
+      "image": "https://i5.walmartimages.com/asr/494433a6-f130-47d7-87c4-a49ddadb3f8c_4.bfeee59991749977a7d925b2cfaa7886.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF"
+    },
+    {
+      "id": 61.099122809762264,
+      "title": "asdasd",
+      "description": "asdasdasdasdasd",
+      "image": "https://pbs.twimg.com/profile_images/2059507398/image.jpg"
+    }
+  ]
+}

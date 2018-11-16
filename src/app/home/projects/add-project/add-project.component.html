@@ -1,0 +1,18 @@
+<h3 class="my-4">Add Projects</h3>
+
+<div class="row">
+  <form class="col" [formGroup]="form" (ngSubmit)="submitClick()">
+    <mat-form-field class="col-md-12">
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+  
+    <mat-form-field class="col-md-12">
+      <input matInput placeholder="Description" formControlName="description">
+    </mat-form-field>
+
+    <mat-form-field class="col-md-12">
+      <input matInput placeholder="Image" formControlName="image">
+    </mat-form-field>
+    <input type="submit" style="margin-bottom:1em" class="form-control btn btn-primary" [disabled]="!form.valid" value="ADD">
+  </form>
+</div>
