@@ -37,7 +37,7 @@ export class AddProjectComponent implements OnInit {
   submitClick = () => {
     if(this.form.valid) {
       const { title , description , image } = this.form.value;
-      const project = new Project(2,title,description,image);
+      const project = new Project(Math.floor(Math.random() * 1000),title,description,image);
       this.dataService.addProject(project);
     }
   }

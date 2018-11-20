@@ -29,20 +29,27 @@ export class ProjectdataService {
   }
 
   public getAllProjects = () => {
-    this.http.get<IProject[]>(PROJECTS_URI).subscribe((data) => {
-      this.projectList = data;
+    if(this.projectList.length == 0) {
+      this.http.get<IProject[]>(PROJECTS_URI).subscribe((data) => {
+        this.projectList = data;
+        const response : GenericResponse<IProject[]> = new GenericResponse<IProject[]>(Status.OK,this.projectList,null);
+        this.projectListchanged.next(response);
+      }, (error : Response) => {
+        const response : GenericResponse<IProject[]> = new GenericResponse<IProject[]>(error.status,null,error.statusText);
+        this.projectListchanged.next(response);
+      });  
+    }
+    else {
       const response : GenericResponse<IProject[]> = new GenericResponse<IProject[]>(Status.OK,this.projectList,null);
       this.projectListchanged.next(response);
-    }, (error : Response) => {
-      const response : GenericResponse<IProject[]> = new GenericResponse<IProject[]>(error.status,null,error.statusText);
-      this.projectListchanged.next(response);
-    });    
+    }
   }
 
   public addProject = (project : IProject) => {
     this.http.post<IProject>(PROJECTS_URI,project,{ observe: 'response' }).subscribe((result) => {
       const response = new GenericResponse(Status.OK,result.body,"");
       this.lastAddedProject = result.body;
+      this.projectList.push(this.lastAddedProject);
       this.projectAdded.next(response);
     },
     (error : HttpErrorResponse) => {

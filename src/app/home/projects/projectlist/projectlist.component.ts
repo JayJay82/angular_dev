@@ -27,6 +27,7 @@ export class ProjectlistComponent implements OnInit, OnDestroy {
         this.errorMessage = data.error;
       }
     });
+    
     this.projectService.getAllProjects();
   }
 
